@@ -121,8 +121,27 @@ function initCarousels() {
   });
 }
 
+function initReadMore() {
+  document.querySelectorAll(".review__more").forEach((button) => {
+    const card = button.closest(".review");
+    const text = card.querySelector("blockquote p");
+    const sync = () => {
+      button.hidden = !card.classList.contains("is-open") && text.scrollHeight <= text.clientHeight + 1;
+    };
+    button.addEventListener("click", () => {
+      const open = card.classList.toggle("is-open");
+      button.textContent = open ? button.dataset.less : button.dataset.more;
+      button.setAttribute("aria-expanded", String(open));
+    });
+    button.setAttribute("aria-expanded", "false");
+    window.addEventListener("resize", sync, { passive: true });
+    sync();
+  });
+}
+
 initOpenStatus();
 initYear();
 initForms();
 initLightbox();
 initCarousels();
+initReadMore();
