@@ -111,7 +111,7 @@ p{text-wrap:pretty}
 .brand img{width:3.5rem;height:auto}
 .brand__name{display:flex;flex-direction:column;line-height:1.1}
 .brand__name strong{font-family:var(--font-display);font-size:1.1875rem;color:var(--clay-700)}
-.brand__name small{font-size:.6875rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--clay-400)}
+.brand__name small{font-size:.6875rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--clay-600)}
 .brand:hover{color:var(--ink)}
 .nav{display:none}
 .header__cta{display:none}
@@ -451,7 +451,7 @@ fieldset.field{border:0;padding:0;min-width:0}
 }
 
 @media (min-width:64rem) and (max-width:79.99rem){
-  .header .brand__name{display:none}
+  .header .brand__name{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
 }
 
 @media (min-width:80rem){
