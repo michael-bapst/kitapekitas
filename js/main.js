@@ -22,7 +22,7 @@ function initOpenStatus() {
   const open = Boolean(slot && minutes >= slot[0] && minutes < slot[1]);
   targets.forEach((el) => {
     el.dataset.state = open ? "open" : "closed";
-    el.textContent = open ? "Jetzt geöffnet" : "Zurzeit geschlossen";
+    el.textContent = open ? el.dataset.open : el.dataset.closed;
   });
   document.querySelectorAll(`[data-day="${day}"]`).forEach((el) => el.classList.add("is-today"));
 }

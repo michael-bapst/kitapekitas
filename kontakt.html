@@ -20,6 +20,10 @@
 <link rel="preload" href="fonts/averia-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/opensans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
+<link rel="alternate" hreflang="de" href="https://kitapekitas.ch/kontakt.html">
+<link rel="alternate" hreflang="en" href="https://kitapekitas.ch/en/contact.html">
+<link rel="alternate" hreflang="es" href="https://kitapekitas.ch/es/contacto.html">
+<link rel="alternate" hreflang="x-default" href="https://kitapekitas.ch/kontakt.html">
 <script src="js/main.js" defer></script>
 </head>
 <body>
@@ -29,6 +33,7 @@
 <div class="container header__inner">
 <a class="brand" href="index.html"><img src="img/logo-xs.webp" width="160" height="125" alt=""><span class="brand__name"><strong>Kita Pekitas</strong><small>Wie Zuhause</small></span></a>
 <nav class="nav" aria-label="Hauptnavigation"><ul><li><a href="ueber-uns.html">Über uns</a></li><li><a href="team.html">Team</a></li><li><a href="betreuung.html">Betreuung</a></li><li><a href="infrastruktur.html">Infrastruktur</a></li><li><a href="tarife.html">Tarife</a></li><li><a href="galerie.html">Galerie</a></li><li><a href="kontakt.html" aria-current="page">Kontakt</a></li></ul></nav>
+<nav class="lang" aria-label="Sprache"><a href="kontakt.html" hreflang="de" lang="de" aria-current="true">DE</a><a href="en/contact.html" hreflang="en" lang="en">EN</a><a href="es/contacto.html" hreflang="es" lang="es">ES</a></nav>
 <a class="btn btn--primary header__cta" href="tarife.html#anfrage">Platz anfragen</a>
 <a class="header__call" href="tel:+41764078548" aria-label="Kita Pekitas anrufen"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></a>
 </div>
@@ -53,7 +58,7 @@
 <li><a href="mailto:info@kitapekitas.ch"><span class="card__icon card__icon--sage"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></span><span><small>E-Mail</small><strong>info@kitapekitas.ch</strong></span></a></li>
 </ul>
 <div class="hours">
-<div class="hours__head"><h2 class="h3">Öffnungszeiten</h2><span class="status" data-open-status></span></div>
+<div class="hours__head"><h2 class="h3">Öffnungszeiten</h2><span class="status" data-open-status data-open="Jetzt geöffnet" data-closed="Zurzeit geschlossen"></span></div>
 <dl>
 <div data-day="1"><dt>Montag</dt><dd>07:00 – 19:00</dd></div>
 <div data-day="2"><dt>Dienstag</dt><dd>07:00 – 19:00</dd></div>
@@ -106,7 +111,7 @@
 <li>Fr: 07:00 – 18:30</li>
 <li>Sa, So &amp; Feiertage geschlossen</li>
 </ul>
-<p class="footer__status"><span class="status" data-open-status></span></p>
+<p class="footer__status"><span class="status" data-open-status data-open="Jetzt geöffnet" data-closed="Zurzeit geschlossen"></span></p>
 </div>
 <div>
 <h3>Seiten</h3>

@@ -20,6 +20,10 @@
 <link rel="preload" href="fonts/averia-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/opensans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/style.css">
+<link rel="alternate" hreflang="de" href="https://kitapekitas.ch/betreuung.html">
+<link rel="alternate" hreflang="en" href="https://kitapekitas.ch/en/care.html">
+<link rel="alternate" hreflang="es" href="https://kitapekitas.ch/es/cuidado.html">
+<link rel="alternate" hreflang="x-default" href="https://kitapekitas.ch/betreuung.html">
 <script src="js/main.js" defer></script>
 </head>
 <body>
@@ -29,6 +33,7 @@
 <div class="container header__inner">
 <a class="brand" href="index.html"><img src="img/logo-xs.webp" width="160" height="125" alt=""><span class="brand__name"><strong>Kita Pekitas</strong><small>Wie Zuhause</small></span></a>
 <nav class="nav" aria-label="Hauptnavigation"><ul><li><a href="ueber-uns.html">Über uns</a></li><li><a href="team.html">Team</a></li><li><a href="betreuung.html" aria-current="page">Betreuung</a></li><li><a href="infrastruktur.html">Infrastruktur</a></li><li><a href="tarife.html">Tarife</a></li><li><a href="galerie.html">Galerie</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></nav>
+<nav class="lang" aria-label="Sprache"><a href="betreuung.html" hreflang="de" lang="de" aria-current="true">DE</a><a href="en/care.html" hreflang="en" lang="en">EN</a><a href="es/cuidado.html" hreflang="es" lang="es">ES</a></nav>
 <a class="btn btn--primary header__cta" href="tarife.html#anfrage">Platz anfragen</a>
 <a class="header__call" href="tel:+41764078548" aria-label="Kita Pekitas anrufen"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></a>
 </div>
@@ -130,7 +135,7 @@
 <li>Fr: 07:00 – 18:30</li>
 <li>Sa, So &amp; Feiertage geschlossen</li>
 </ul>
-<p class="footer__status"><span class="status" data-open-status></span></p>
+<p class="footer__status"><span class="status" data-open-status data-open="Jetzt geöffnet" data-closed="Zurzeit geschlossen"></span></p>
 </div>
 <div>
 <h3>Seiten</h3>
