@@ -108,7 +108,7 @@ p{text-wrap:pretty}
 .header{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--cream) 86%,transparent);-webkit-backdrop-filter:saturate(1.6) blur(14px);backdrop-filter:saturate(1.6) blur(14px);border-bottom:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
 .header__inner{display:flex;align-items:center;gap:1rem;height:var(--header-h)}
 .brand{display:flex;align-items:center;gap:.625rem;margin-right:auto;color:var(--ink);text-decoration:none}
-.brand img{width:auto;height:3.25rem}
+.header .brand img{width:auto;height:3.25rem}
 .brand__name{display:flex;flex-direction:column;line-height:1.1;white-space:nowrap}
 .brand__name strong{font-family:var(--font-display);font-size:1.1875rem;color:var(--clay-700)}
 .brand__name small{font-size:.6875rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--clay-600)}
@@ -386,7 +386,7 @@ fieldset.field{border:0;padding:0;min-width:0}
 .footer__brand .brand__name strong{color:var(--white)}
 .footer__brand .brand__name small{color:var(--clay-300)}
 .footer__logo{display:flex;align-items:center;gap:.75rem}
-.footer__logo img{width:3rem;height:3rem;padding:.125rem;border-radius:50%;background:var(--cream)}
+.footer__logo img{flex:none;box-sizing:border-box;width:3.5rem;height:3.5rem;padding:.3125rem;border-radius:50%;background:var(--cream);object-fit:contain;box-shadow:0 0 0 3px color-mix(in srgb,var(--white) 10%,transparent)}
 .footer h3{margin-bottom:.625rem;font-family:var(--font-body);font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--clay-300)}
 .footer ul{display:grid;gap:.25rem;padding:0;list-style:none}
 .footer__contact,.footer__status{margin-top:.5rem}
@@ -443,7 +443,7 @@ fieldset.field{border:0;padding:0;min-width:0}
   :root{--gutter:2rem;--header-h:5rem}
   body{padding-bottom:0}
   .tabbar,.header__call{display:none}
-  .brand img{height:4.25rem}
+  .header .brand img{height:4.25rem}
   .nav{display:block}
   .nav ul{display:flex;gap:.25rem;padding:0;list-style:none}
   .nav a{position:relative;display:block;padding:.5rem .75rem;white-space:nowrap;border-radius:999px;font-size:.9375rem;font-weight:600;color:var(--ink-soft);text-decoration:none;transition:color .2s,background-color .2s}
