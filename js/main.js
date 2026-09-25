@@ -101,7 +101,28 @@ function initLightbox() {
   );
 }
 
+function initCarousels() {
+  document.querySelectorAll("[data-carousel-prev], [data-carousel-next]").forEach((button) => {
+    const track = document.getElementById(button.dataset.carouselPrev || button.dataset.carouselNext);
+    if (!track) return;
+    const direction = button.dataset.carouselPrev ? -1 : 1;
+    const update = () => {
+      const max = track.scrollWidth - track.clientWidth - 2;
+      button.disabled = direction < 0 ? track.scrollLeft <= 2 : track.scrollLeft >= max;
+    };
+    button.addEventListener("click", () => {
+      const item = track.firstElementChild;
+      const step = item ? item.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || 0) : track.clientWidth;
+      track.scrollBy({ left: step * direction });
+    });
+    track.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update, { passive: true });
+    update();
+  });
+}
+
 initOpenStatus();
 initYear();
 initForms();
 initLightbox();
+initCarousels();
