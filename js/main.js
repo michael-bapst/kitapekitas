@@ -1,5 +1,5 @@
 const HOURS = { 1: [420, 1140], 2: [420, 1140], 3: [420, 1140], 4: [420, 1140], 5: [420, 1110] };
-const EMAIL = "info@kitapekitas.ch";
+const ENDPOINT = "https://formsubmit.co/ajax/info@kitapekitas.ch";
 
 function zurichNow() {
   const parts = new Intl.DateTimeFormat("en-GB", {
@@ -34,20 +34,44 @@ function initYear() {
 
 function initForms() {
   document.querySelectorAll("form[data-mail]").forEach((form) => {
-    form.addEventListener("submit", (event) => {
+    const button = form.querySelector('[type="submit"]');
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      if (!form.reportValidity()) return;
+      if (!form.reportValidity() || button.disabled) return;
       const data = new FormData(form);
-      const lines = [];
-      form.querySelectorAll("[data-label]").forEach((field) => {
+      const payload = {
+        _subject: form.dataset.mail,
+        _template: "table",
+        _captcha: "false",
+        _honey: data.get("_honey") || "",
+        Sprache: document.documentElement.lang,
+      };
+      form.querySelectorAll("[data-key]").forEach((field) => {
         const name = field.name || field.dataset.name;
         const values = data.getAll(name).filter(Boolean);
-        if (values.length) lines.push(`${field.dataset.label}: ${values.join(", ")}`);
+        if (values.length) payload[field.dataset.key] = values.join(", ");
       });
-      const subject = form.dataset.mail;
-      const body = lines.join("\n");
-      window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      form.classList.add("is-sent");
+      const email = data.get("email");
+      if (email) payload._replyto = email;
+      form.classList.remove("is-sent", "is-error");
+      button.disabled = true;
+      button.setAttribute("aria-busy", "true");
+      try {
+        const response = await fetch(ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(payload),
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || String(result.success) === "false") throw new Error(result.message || response.status);
+        form.reset();
+        form.classList.add("is-sent");
+      } catch {
+        form.classList.add("is-error");
+      } finally {
+        button.disabled = false;
+        button.removeAttribute("aria-busy");
+      }
     });
   });
 }

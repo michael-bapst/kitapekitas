@@ -377,6 +377,10 @@ fieldset.field{border:0;padding:0;min-width:0}
 .form__note{font-size:.8125rem;color:var(--muted)}
 .form__done{display:none;padding:1rem 1.125rem;border-radius:var(--radius-sm);background:var(--sage-100);color:var(--sage-700);font-weight:600;font-size:.9375rem}
 .form.is-sent .form__done{display:block}
+.form__error{display:none;padding:1rem 1.125rem;border-radius:var(--radius-sm);background:var(--peach-100);color:var(--clay-700);font-weight:600;font-size:.9375rem}
+.form.is-error .form__error{display:block}
+.form__hp{display:none}
+.form [aria-busy="true"]{opacity:.7;cursor:progress}
 
 .footer{margin-top:4rem;padding-block:2.5rem 1.5rem;background:var(--ink);color:color-mix(in srgb,var(--white) 78%,transparent);font-size:.9375rem}
 .footer a{color:color-mix(in srgb,var(--white) 78%,transparent);text-decoration:none}
